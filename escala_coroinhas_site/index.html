@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174c3c">
+  <title>Escala dos Coroinhas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand-mark">✦</div>
+    <div>
+      <p class="eyebrow">PASTORAL DO COROINHA</p>
+      <h1>Escala dos Coroinhas</h1>
+      <p class="subtitle">Organize o mês com equilíbrio e praticidade.</p>
+    </div>
+  </header>
+
+  <main class="app">
+    <nav class="tabs" aria-label="Navegação principal">
+      <button class="tab active" data-tab="config">⚙️ Configurar</button>
+      <button class="tab" data-tab="escala">📅 Escala</button>
+      <button class="tab" data-tab="resumo">📊 Resumo</button>
+    </nav>
+
+    <section id="panel-config" class="panel active">
+      <div class="section-heading">
+        <div><p class="eyebrow">ETAPA 1</p><h2>Configurar o mês</h2></div>
+        <span class="pill">Salvo neste aparelho</span>
+      </div>
+      <div class="form-grid">
+        <label>Mês
+          <select id="month">
+            <option value="0">Janeiro</option><option value="1">Fevereiro</option><option value="2">Março</option>
+            <option value="3">Abril</option><option value="4">Maio</option><option value="5">Junho</option>
+            <option value="6">Julho</option><option value="7">Agosto</option><option value="8">Setembro</option>
+            <option value="9">Outubro</option><option value="10" selected>Novembro</option><option value="11">Dezembro</option>
+          </select>
+        </label>
+        <label>Ano <input id="year" type="number" min="2020" max="2100" value="2026"></label>
+        <label>Quantidade por celebração
+          <select id="staffMode"><option value="auto">Automático (divide igualmente)</option><option value="fixed">Número fixo</option></select>
+        </label>
+        <label id="fixedWrap" class="hidden">Coroinhas por celebração
+          <input id="fixedCount" type="number" min="1" value="4">
+        </label>
+      </div>
+
+      <div class="subsection">
+        <h3>Dias e horários das celebrações</h3>
+        <p class="muted">Ative os dias e ajuste os horários. No domingo, cada horário conta como uma missa separada.</p>
+        <div id="serviceDays" class="service-list"></div>
+        <button class="btn btn-light" id="addTime">＋ Adicionar horário de domingo</button>
+      </div>
+
+      <div class="subsection">
+        <div class="section-heading compact"><div><h3>Lista de coroinhas</h3><p class="muted">Adicione os nomes e marque restrições quando necessário.</p></div><span id="memberCount" class="count">0 nomes</span></div>
+        <div id="members" class="members"></div>
+        <div class="add-member">
+          <input id="newMember" placeholder="Nome do coroinha" aria-label="Nome do coroinha">
+          <button class="btn btn-primary" id="addMember">Adicionar</button>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Datas especiais</h3>
+        <p class="muted">Confira e edite as datas conforme o calendário da sua paróquia.</p>
+        <div class="form-grid">
+          <label>Data <input id="specialDate" type="date"></label>
+          <label>Descrição <input id="specialName" placeholder="Ex.: Solenidade da paróquia"></label>
+          <label>Tipo
+            <select id="specialType"><option value="solemnity">Solenidade</option><option value="holiday">Feriado nacional</option></select>
+          </label>
+          <div class="align-end"><button class="btn btn-light" id="addSpecial">Adicionar data</button></div>
+        </div>
+        <div id="specialList" class="special-list"></div>
+      </div>
+
+      <div class="bottom-actions">
+        <button class="btn btn-primary" id="generate">Gerar escala do mês →</button>
+        <button class="btn btn-light" id="reset">Restaurar exemplos</button>
+      </div>
+      <p id="configMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="panel-escala" class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">ETAPA 2</p><h2 id="scheduleTitle">Escala mensal</h2><p id="liturgical" class="muted"></p></div>
+        <button class="btn btn-light" id="rotate">↻ Girar rodízio</button>
+      </div>
+      <div class="legend"><span><i class="dot green"></i> Tempo comum / celebração</span><span><i class="dot purple"></i> Data especial</span><span><i class="dot gold"></i> Domingo</span></div>
+      <div id="schedule" class="schedule"></div>
+      <div class="share-tools">
+        <label>Copiar escala de
+          <select id="copyMember"><option value="all">Todos os coroinhas</option></select>
+        </label>
+        <button class="btn btn-primary" id="copyWhatsApp">Copiar para WhatsApp</button>
+      </div>
+      <p id="shareMessage" class="message" role="status"></p>
+      <div id="warnings" class="warnings"></div>
+    </section>
+
+    <section id="panel-resumo" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">ETAPA 3</p><h2>Resumo da distribuição</h2><p class="muted">Confira quantas vezes cada pessoa foi escalada.</p></div></div>
+      <div id="summary" class="summary"></div>
+      <div class="subsection"><h3>Conferência das regras</h3><div id="ruleChecks" class="checks"></div></div>
+    </section>
+  </main>
+  <footer>Escala dos Coroinhas · Os dados ficam salvos apenas neste navegador.</footer>
+  <script src="app.js"></script>
+</body>
+</html>

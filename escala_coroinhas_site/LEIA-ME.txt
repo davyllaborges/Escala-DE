@@ -1,0 +1,16 @@
+ESCALA DOS COROINHAS — COMO USAR
+
+1. Extraia o arquivo ZIP.
+2. Abra index.html no navegador do computador ou celular.
+3. Na aba Configurar, ajuste mês/ano, dias e horários, nomes, restrições e datas especiais.
+4. Toque em “Gerar escala do mês”.
+5. Confira Escala e Resumo antes de compartilhar.
+6. Use “Copiar para WhatsApp” para copiar a escala.
+
+Os dados são guardados no localStorage do navegador/aparelho atual. Se limpar os dados do navegador ou trocar de aparelho, as configurações podem não acompanhar.
+
+IMPORTANTE:
+- Este é um protótipo inicial de apoio. Revise a distribuição manualmente antes de usar oficialmente.
+- As solenidades e feriados não são preenchidos automaticamente: adicione e confira as datas com a paróquia.
+- A indicação de tempo litúrgico é orientativa, não substitui o calendário litúrgico oficial.
+- Para publicar na internet, hospede os arquivos em um serviço estático (por exemplo, GitHub Pages ou Netlify).
